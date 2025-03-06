@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.CategoryHandlers
 {
-    public class UpdateCategoryCommandHandle
+    public class UpdateCategoryCommandHandler
     {
         public readonly MoviContext _context;
 
-        public UpdateCategoryCommandHandle(MoviContext context)
+        public UpdateCategoryCommandHandler(MoviContext context)
         {
             _context = context;
         }
-        public async void Hanled(UpdateCategoryCommand command)
+        public async Task Hanled(UpdateCategoryCommand command)
         {
             var value = await _context.Categories.FindAsync(command.CategoryId);
             value.CategoryName = command.CategoryName;

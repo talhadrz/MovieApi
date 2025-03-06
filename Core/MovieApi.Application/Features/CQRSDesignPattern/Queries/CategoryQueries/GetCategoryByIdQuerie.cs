@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieApi.Application.Features.CQRSDesignPattern.Queries.CategoryQueries
 {
-    public class GetCategoryByIdQuerie
+    public class GetCategoryByIdQuery
     {
         public int CategoryId { get; set; }
 
