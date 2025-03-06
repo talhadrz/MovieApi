@@ -32,6 +32,7 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers
                 CreatedYear = value.CreatedYear,
                 Status = value.Status
             };
+
         }
     }
 }
