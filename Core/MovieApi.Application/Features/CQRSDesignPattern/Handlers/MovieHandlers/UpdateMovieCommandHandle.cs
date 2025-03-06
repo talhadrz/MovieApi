@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers
 {
-    public class UpdateMovieCommandHandle
+    public class UpdateMovieCommandHandler
     {
         private readonly MoviContext _context;
 
-        public UpdateMovieCommandHandle(MoviContext context)
+        public UpdateMovieCommandHandler(MoviContext context)
         {
             _context = context;
         }
-        public async Task Handler(UpdateMovieCommand command)
+        public async Task Handle(UpdateMovieCommand command)
         {
             var value = await _context.Movies.FindAsync(command.MovieId);
             value.Rating = command.Rating;

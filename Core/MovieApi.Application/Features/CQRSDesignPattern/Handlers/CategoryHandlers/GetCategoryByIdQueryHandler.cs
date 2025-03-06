@@ -17,7 +17,7 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.CategoryHandl
         {
             _context = context;
         }
-        public async Task<GetCategoryByIdQueryResult> Handler(GetCategoryByIdQuery query)
+        public async Task<GetCategoryByIdQueryResult> Handle(GetCategoryByIdQuery query)
         {
             var value = await _context.Categories.FindAsync(query.CategoryId);
             return new GetCategoryByIdQueryResult

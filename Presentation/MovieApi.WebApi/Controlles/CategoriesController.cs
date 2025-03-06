@@ -33,8 +33,27 @@ namespace MovieApi.WebApi.Controlles
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryCommand command)
         {
-          await _createCategoryCommandHandler.Handle(command);
+            await _createCategoryCommandHandler.Handle(command);
             return Ok("Categori Ekleme İşlemi Başarılı");
         }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            await _removeCategoryCommandHandler.Handle(new RemoveCategoryCommand(id));
+            return Ok("Silme İşlemi Başarılı");
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryCommand command)
+        {
+            await _updateCategoryCommandHandler.Handle(command);
+            return Ok("Güncelleme İşlemi Başarılı");
+        }
+        [HttpGet("GetCategory")]
+        public async Task<IActionResult> GetCategory(int id)
+        {
+            var value = await _getCategoryByIdQueryHandler.Handle(new GetCategoryByIdQuery(id));
+            return Ok(value);
+        }
+
     }
 }
