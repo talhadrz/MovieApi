@@ -19,7 +19,7 @@ namespace MovieApi.Application.Features.MediatorDesignPattern.Handlers.CastHandl
         {
             _context = context;
         }
-
+         
         public async Task<GetCastByIdQueryResult> Handle(GetCastByIdQuery request, CancellationToken cancellationToken)
         {
             var values = await _context.casts.FindAsync(request.CastId);

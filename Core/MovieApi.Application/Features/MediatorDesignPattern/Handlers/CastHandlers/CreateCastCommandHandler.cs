@@ -21,7 +21,7 @@ namespace MovieApi.Application.Features.MediatorDesignPattern.Handlers.CastHandl
 
         public async Task Handle(CreateCastCommand request, CancellationToken cancellationToken)
         {
-            _context.casts.Add(new Cast
+           await _context.casts.AddAsync(new Cast
             {
                 Biography = request.Biography,
                 ImageUrl = request.ImageUrl,
